@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="刘子航 · 个人简历 - 中国传媒大学 汉语言专业">
+<title>刘子航 · 个人简历</title>
+<style>
+  /* ===== Reset & Base ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, sans-serif;
+    background-color: #F7F4EF;
+    color: #2C2C2C;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ===== Typography ===== */
+  h1, h2, h3 { font-weight: 600; line-height: 1.3; }
+  h1 { font-size: 2.4rem; letter-spacing: 0.06em; }
+  h2 { font-size: 1.5rem; letter-spacing: 0.04em; color: #5C5346; }
+  h3 { font-size: 1.05rem; }
+  p { color: #4A4A4A; }
+  a { color: #8B7355; text-decoration: none; position: relative; transition: color 0.3s; }
+  a::after {
+    content: ''; position: absolute; left: 0; bottom: -1px; width: 0; height: 1px;
+    background: #8B7355; transition: width 0.3s ease;
+  }
+  a:hover { color: #6B5A45; }
+  a:hover::after { width: 100%; }
+
+  /* ===== Layout ===== */
+  .container { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+
+  /* ===== Navigation ===== */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(247, 244, 239, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    transition: all 0.3s;
+  }
+  .nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
+  .nav .container {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand { font-size: 1.05rem; font-weight: 600; color: #5C5346; letter-spacing: 0.05em; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 0.9rem; color: #7A7A7A; letter-spacing: 0.03em; }
+  .nav-links a::after { display: none; }
+  .nav-links a:hover { color: #5C5346; }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: #5C5346; border-radius: 1px; transition: all 0.3s; }
+
+  /* ===== Hero ===== */
+  .hero {
+    padding: 120px 0 72px;
+  }
+  .hero .container {
+    display: flex; align-items: center; gap: 56px;
+  }
+  .hero-content { flex: 1; }
+  .hero-name {
+    font-size: 3rem; font-weight: 700; letter-spacing: 0.08em;
+    color: #2C2C2C; margin-bottom: 8px;
+  }
+  .hero-subtitle {
+    font-size: 1.15rem; color: #8B7355; font-weight: 500; letter-spacing: 0.06em;
+    margin-bottom: 20px;
+  }
+  .hero-desc {
+    font-size: 1rem; color: #7A7A7A; max-width: 440px; line-height: 1.8;
+  }
+  .hero-photo {
+    flex-shrink: 0;
+    width: 180px; height: 180px; border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #E8E2D9;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .hero-photo:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 48px rgba(0,0,0,0.12);
+  }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ===== Section ===== */
+  .section { padding: 64px 0; }
+  .section + .section { border-top: 1px solid #E8E2D9; }
+  .section-title {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 36px;
+  }
+  .section-title h2 { flex-shrink: 0; }
+  .section-title::after {
+    content: ''; flex: 1; height: 1px; background: #E0D9CE;
+  }
+  .section-number {
+    font-size: 0.85rem; font-weight: 500; color: #B8A99A;
+    letter-spacing: 0.06em; min-width: 28px;
+  }
+
+  /* ===== Info Grid ===== */
+  .info-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .info-item {
+    background: #FFFFFF; border: 1px solid #EBE5DC;
+    border-radius: 10px; padding: 18px 22px;
+    transition: all 0.35s ease;
+    position: relative; top: 0;
+  }
+  .info-item:hover {
+    top: -3px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+    border-color: #D4C8B6;
+  }
+  .info-label {
+    font-size: 0.78rem; color: #A09888; letter-spacing: 0.05em;
+    margin-bottom: 4px; text-transform: uppercase;
+  }
+  .info-value { font-size: 1rem; color: #2C2C2C; font-weight: 500; }
+
+  /* ===== Education Card ===== */
+  .edu-card {
+    background: #FFFFFF; border: 1px solid #EBE5DC;
+    border-radius: 12px; padding: 28px 32px;
+    transition: all 0.35s ease; position: relative; top: 0;
+  }
+  .edu-card:hover {
+    top: -3px; box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+    border-color: #D4C8B6;
+  }
+  .edu-school { font-size: 1.2rem; font-weight: 600; color: #2C2C2C; }
+  .edu-major { font-size: 0.95rem; color: #8B7355; margin-top: 4px; }
+
+  /* ===== Skills ===== */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 20px;
+  }
+  .skill-card {
+    background: #FFFFFF; border: 1px solid #EBE5DC;
+    border-radius: 12px; padding: 26px 28px;
+    transition: all 0.35s ease; position: relative; top: 0;
+    cursor: default;
+  }
+  .skill-card:hover {
+    top: -3px; box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+    border-color: #D4C8B6;
+  }
+  .skill-icon {
+    font-size: 1.6rem; margin-bottom: 10px;
+  }
+  .skill-card h3 { color: #2C2C2C; margin-bottom: 8px; }
+  .skill-card p { font-size: 0.93rem; color: #6B6B6B; line-height: 1.7; }
+
+  /* ===== Projects ===== */
+  .project-card {
+    background: #FFFFFF; border: 1px solid #EBE5DC;
+    border-radius: 12px; padding: 28px 32px; margin-bottom: 20px;
+    transition: all 0.35s ease; position: relative; top: 0;
+  }
+  .project-card:hover {
+    top: -3px; box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+    border-color: #D4C8B6;
+  }
+  .project-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .project-name { font-size: 1.1rem; font-weight: 600; color: #2C2C2C; }
+  .project-role {
+    font-size: 0.82rem; color: #A09888; background: #F7F4EF;
+    padding: 3px 10px; border-radius: 20px; letter-spacing: 0.03em;
+  }
+  .project-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.88rem; color: #8B7355; margin-bottom: 12px;
+    transition: all 0.3s;
+  }
+  .project-link:hover { color: #6B5A45; gap: 10px; }
+  .project-link svg { width: 14px; height: 14px; }
+  .project-details { list-style: none; }
+  .project-details li {
+    font-size: 0.93rem; color: #5A5A5A; line-height: 1.8;
+    padding-left: 20px; position: relative;
+  }
+  .project-details li::before {
+    content: '—'; position: absolute; left: 0; color: #C8BCA8;
+  }
+
+  /* ===== Self-Eval ===== */
+  .eval-card {
+    background: #FFFFFF; border: 1px solid #EBE5DC;
+    border-radius: 12px; padding: 32px 36px;
+    position: relative;
+    transition: all 0.35s ease; top: 0;
+  }
+  .eval-card:hover {
+    top: -3px; box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+  }
+  .eval-card::before {
+    content: '"'; position: absolute; top: 8px; left: 20px;
+    font-size: 5rem; color: #E8E2D9; font-family: Georgia, serif;
+    line-height: 1; pointer-events: none;
+  }
+  .eval-text {
+    font-size: 1rem; color: #4A4A4A; line-height: 2;
+    position: relative; z-index: 1;
+  }
+
+  /* ===== Footer ===== */
+  .footer {
+    padding: 48px 0; text-align: center;
+    border-top: 1px solid #E8E2D9;
+  }
+  .footer-name { font-size: 1.2rem; font-weight: 600; color: #2C2C2C; letter-spacing: 0.06em; }
+  .footer-tag { font-size: 0.85rem; color: #A09888; margin-top: 4px; }
+
+  /* ===== Scroll Animations ===== */
+  .fade-in {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== Back to Top ===== */
+  .back-to-top {
+    position: fixed; bottom: 32px; right: 32px;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: #FFFFFF; border: 1px solid #E8E2D9;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: translateY(12px);
+    transition: all 0.35s ease; pointer-events: none; z-index: 50;
+  }
+  .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .back-to-top:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.10); transform: translateY(-2px); }
+  .back-to-top svg { width: 18px; height: 18px; color: #8B7355; }
+
+  /* ===== Decorative Elements ===== */
+  .dot-pattern {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: -1; opacity: 0.03;
+    background-image: radial-gradient(circle, #5C5346 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    h1 { font-size: 1.8rem; }
+    .hero-name { font-size: 2.2rem; }
+    .hero { padding: 100px 0 48px; }
+    .hero .container { flex-direction: column-reverse; gap: 32px; text-align: center; }
+    .hero-desc { max-width: 100%; }
+    .hero-photo { width: 140px; height: 140px; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 56px; left: 0; right: 0;
+      background: rgba(247, 244, 239, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 20px 28px; gap: 16px;
+      border-bottom: 1px solid #E8E2D9;
+    }
+    .nav-toggle { display: flex; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .info-grid { grid-template-columns: repeat(2, 1fr); }
+    .section { padding: 44px 0; }
+    .skill-card, .project-card, .eval-card, .edu-card, .info-item { padding: 18px 20px; }
+  }
+  @media (max-width: 480px) {
+    .info-grid { grid-template-columns: 1fr; }
+    .container { padding: 0 18px; }
+    .hero-name { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="dot-pattern"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="#" class="nav-brand">刘子航</a>
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#info" data-nav>个人信息</a></li>
+        <li><a href="#education" data-nav>教育背景</a></li>
+        <li><a href="#skills" data-nav>能力经历</a></li>
+        <li><a href="#projects" data-nav>项目经历</a></li>
+        <li><a href="#eval" data-nav>自我评价</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content fade-in">
+        <h1 class="hero-name">刘子航</h1>
+        <p class="hero-subtitle">汉语言专业 · 中国传媒大学</p>
+        <p class="hero-desc">
+          具备扎实的文字功底与公文写作能力，丰富的学生工作与活动组织经验，
+          熟练运用 AI 工具赋能工作流程。期待以务实的态度，在实践中学以致用。
+        </p>
+      </div>
+      <div class="hero-photo fade-in">
+        <img src="photo.jpg" alt="刘子航">
+      </div>
+    </div>
+  </header>
+
+  <!-- 个人信息 -->
+  <section class="section" id="info">
+    <div class="container">
+      <div class="section-title fade-in">
+        <span class="section-number">01</span>
+        <h2>个人信息</h2>
+      </div>
+      <div class="info-grid">
+        <div class="info-item fade-in">
+          <div class="info-label">姓名</div>
+          <div class="info-value">刘子航</div>
+        </div>
+        <div class="info-item fade-in">
+          <div class="info-label">出生年月</div>
+          <div class="info-value">2006年11月</div>
+        </div>
+        <div class="info-item fade-in">
+          <div class="info-label">手机号码</div>
+          <div class="info-value">18000680975</div>
+        </div>
+        <div class="info-item fade-in">
+          <div class="info-label">邮箱地址</div>
+          <div class="info-value">202514043001@mails.cuc.edu.cn</div>
+        </div>
+        <div class="info-item fade-in" style="grid-column: 1 / -1;">
+          <div class="info-label">可到岗时间</div>
+          <div class="info-value">7月1日（7-8月一周五天，9月开学后可每周线下到岗3天，接受线上工作）</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 教育背景 -->
+  <section class="section" id="education">
+    <div class="container">
+      <div class="section-title fade-in">
+        <span class="section-number">02</span>
+        <h2>教育背景</h2>
+      </div>
+      <div class="edu-card fade-in">
+        <div class="edu-school">中国传媒大学</div>
+        <div class="edu-major">汉语言专业</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 个人能力与经历 -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-title fade-in">
+        <span class="section-number">03</span>
+        <h2>个人能力与经历</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card fade-in">
+          <div class="skill-icon">✍️</div>
+          <h3>新闻采编与文字能力</h3>
+          <p>撰写学院开学典礼、领导访企拓岗、多项讲座活动新闻稿件，撰写校学工部军训纪实稿件；起草校"职引工坊"辅导员工作室年度报告、季度计划等行政文件；具备扎实的文字功底与公文写作能力。</p>
+        </div>
+        <div class="skill-card fade-in">
+          <div class="skill-icon">🤝</div>
+          <h3>活动组织与策划</h3>
+          <p>对接红松集团、粉笔教育等企业，协助开展校企联动线下活动；具备跨部门沟通、执行与现场协调能力。</p>
+        </div>
+        <div class="skill-card fade-in">
+          <div class="skill-icon">🤖</div>
+          <h3>AI 工具应用</h3>
+          <p>熟练使用常见 AI 模型，完成数据分析、程序设计、智能体搭建、海报与短片制作等任务；能高效将 AI 融入工作流程，提升产出质量。</p>
+        </div>
+        <div class="skill-card fade-in">
+          <div class="skill-icon">🏫</div>
+          <h3>学生工作经历</h3>
+          <p>担任学院团委办公室干事、就业服务部干事、学工办助管、融媒体中心成员；多岗位锻炼，具备较强的责任心和综合协调能力。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 项目经历 -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-title fade-in">
+        <span class="section-number">04</span>
+        <h2>项目经历</h2>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header">
+          <span class="project-name">轻量级内部社区论坛</span>
+          <span class="project-role">独立开发者</span>
+        </div>
+        <a class="project-link" href="https://community-site-n593.onrender.com/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          community-site-n593.onrender.com
+        </a>
+        <ul class="project-details">
+          <li>独立使用 Claude Code 完成需求分析、系统设计、代码编写、Bug 排查及云端部署全流程，实现高效的 AI 辅助开发模式</li>
+          <li>基于 FastAPI + Supabase + Render 构建完整社区网站，涵盖发帖、评论、图片上传、全文搜索、用户认证与权限管理</li>
+          <li>使用 Jinja2 模板引擎 + Tailwind CSS 实现响应式界面，Pure JavaScript 实现日历备忘录、图片灯箱、防重复提交等交互模块</li>
+          <li>设计 PostgreSQL 数据库架构（用户/帖子/评论/图片/备忘录），编写 Supabase Storage 文件管理方案</li>
+          <li>配置 Render 云端自动部署，完成多次 Bug 修复与功能迭代的持续交付</li>
+          <li>通过 AI 工具完成从 0 到 1 的独立交付，验证了 AI 辅助全栈开发的高效工作流</li>
+        </ul>
+      </div>
+
+      <div class="project-card fade-in">
+        <div class="project-header">
+          <span class="project-name">"青创北京"挑战杯创业计划竞赛</span>
+          <span class="project-role">核心成员</span>
+        </div>
+        <p style="font-size:0.93rem; color:#5A5A5A;">
+          作为核心成员参与"青创北京"2026年"挑战杯"首都大学生创业计划竞赛，项目经学校认可推优至赛事主办方。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 自我评价 -->
+  <section class="section" id="eval">
+    <div class="container">
+      <div class="section-title fade-in">
+        <span class="section-number">05</span>
+        <h2>自我评价</h2>
+      </div>
+      <div class="eval-card fade-in">
+        <p class="eval-text">
+          本人性格沉稳踏实，做事认真负责，对待工作始终保持严谨细致的态度，能高效完成各项任务。同时兼具良好的团队协作意识与沟通能力，执行力强，乐于主动学习，愿意以务实的态度面对工作中的挑战，稳步推进目标落地。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container fade-in">
+      <p class="footer-name">刘子航</p>
+      <p class="footer-tag">个人简历 · 汉语言专业 · 中国传媒大学</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="返回顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 11 12 6 7 11"/><line x1="12" y1="18" x2="12" y2="6"/></svg>
+  </button>
+
+  <script>
+    // ===== Scroll Animations (Intersection Observer) =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ===== Nav Scroll Effect =====
+    const nav = document.getElementById('nav');
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 10);
+      backToTop.classList.toggle('visible', y > 600);
+    });
+
+    // ===== Smooth scroll for nav links =====
+    document.querySelectorAll('[data-nav]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = nav.offsetHeight + 16;
+          window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+        }
+        // Close mobile menu if open
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // ===== Back to Top =====
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===== Mobile Nav Toggle =====
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // ===== Trigger initial visible animations =====
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
