@@ -79,7 +79,7 @@
   }
   .hero-photo {
     flex-shrink: 0;
-    width: 180px; height: 180px; border-radius: 50%;
+    width: 180px; height: 180px; border-radius: 16px;
     overflow: hidden;
     border: 3px solid #E8E2D9;
     box-shadow: 0 4px 32px rgba(0,0,0,0.08);
@@ -126,7 +126,7 @@
     font-size: 0.78rem; color: #A09888; letter-spacing: 0.05em;
     margin-bottom: 4px; text-transform: uppercase;
   }
-  .info-value { font-size: 1rem; color: #2C2C2C; font-weight: 500; }
+  .info-value { font-size: 1rem; color: #2C2C2C; font-weight: 500; overflow-wrap: break-word; }
 
   /* ===== Education Card ===== */
   .edu-card {
@@ -197,21 +197,17 @@
   /* ===== Self-Eval ===== */
   .eval-card {
     background: #FFFFFF; border: 1px solid #EBE5DC;
-    border-radius: 12px; padding: 32px 36px;
+    border-top: 3px solid #C8BCA8;
+    border-radius: 12px; padding: 36px 36px 32px;
     position: relative;
     transition: all 0.35s ease; top: 0;
   }
   .eval-card:hover {
     top: -3px; box-shadow: 0 8px 28px rgba(0,0,0,0.07);
-  }
-  .eval-card::before {
-    content: '"'; position: absolute; top: 8px; left: 20px;
-    font-size: 5rem; color: #E8E2D9; font-family: Georgia, serif;
-    line-height: 1; pointer-events: none;
+    border-top-color: #A89880;
   }
   .eval-text {
     font-size: 1rem; color: #4A4A4A; line-height: 2;
-    position: relative; z-index: 1;
   }
 
   /* ===== Footer ===== */
@@ -338,7 +334,7 @@
           <div class="info-label">手机号码</div>
           <div class="info-value">18000680975</div>
         </div>
-        <div class="info-item fade-in">
+        <div class="info-item fade-in" style="grid-column: span 2;">
           <div class="info-label">邮箱地址</div>
           <div class="info-value">202514043001@mails.cuc.edu.cn</div>
         </div>
