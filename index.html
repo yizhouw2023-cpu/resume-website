@@ -195,6 +195,28 @@
     content: '—'; position: absolute; left: 0; color: #C8BCA8;
   }
 
+  /* ===== Publications ===== */
+  .pub-card {
+    background: #FFFFFF; border: 1px solid #EBE5DC;
+    border-radius: 12px; padding: 28px 32px;
+    transition: all 0.35s ease; position: relative; top: 0;
+  }
+  .pub-card:hover {
+    top: -3px; box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+    border-color: #D4C8B6;
+  }
+  .pub-list { list-style: none; }
+  .pub-list li + li { border-top: 1px solid #F0ECE3; }
+  .pub-list a {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 16px 0; font-size: 0.97rem; color: #2C2C2C;
+    font-weight: 500; transition: all 0.3s;
+  }
+  .pub-list a::after { display: none; }
+  .pub-list a:hover { color: #8B7355; padding-left: 6px; }
+  .pub-list a svg { flex-shrink: 0; width: 16px; height: 16px; color: #B8A99A; transition: color 0.3s; }
+  .pub-list a:hover svg { color: #8B7355; }
+
   /* ===== Self-Eval ===== */
   .eval-card {
     background: #FFFFFF; border: 1px solid #EBE5DC;
@@ -269,7 +291,7 @@
     .skills-grid { grid-template-columns: 1fr; }
     .info-grid { grid-template-columns: repeat(2, 1fr); }
     .section { padding: 44px 0; }
-    .skill-card, .project-card, .eval-card, .edu-card, .info-item { padding: 18px 20px; }
+    .skill-card, .project-card, .eval-card, .edu-card, .info-item, .pub-card { padding: 18px 20px; }
   }
   @media (max-width: 480px) {
     .info-grid { grid-template-columns: 1fr; }
@@ -294,6 +316,7 @@
         <li><a href="#skills" data-nav>能力经历</a></li>
         <li><a href="#projects" data-nav>项目经历</a></li>
         <li><a href="#eval" data-nav>自我评价</a></li>
+        <li><a href="#works" data-nav>代表作品</a></li>
       </ul>
     </div>
   </nav>
@@ -372,17 +395,17 @@
         <div class="skill-card fade-in">
           <div class="skill-icon">✍️</div>
           <h3>新闻采编与文字能力</h3>
-          <p>撰写学院开学典礼、领导访企拓岗、多项讲座活动新闻稿件，撰写校学工部军训纪实稿件；起草校"职引工坊"辅导员工作室年度报告、季度计划等行政文件；具备扎实的文字功底与公文写作能力。</p>
+          <p>多次为学校学院撰写文稿，如学院开学典礼、领导班子访企拓岗、各类讲座活动新闻稿件，校学工部军训纪实稿件；深度参与学校"职引工坊"辅导员工作室事务，并起草年度报告、季度计划等行政文件；具备扎实的文字功底与公文写作能力。</p>
         </div>
         <div class="skill-card fade-in">
           <div class="skill-icon">🤝</div>
           <h3>活动组织与策划</h3>
-          <p>对接红松集团、粉笔教育等企业，协助开展校企联动线下活动；具备跨部门沟通、执行与现场协调能力。</p>
+          <p>对接网易、国家大剧院等多家企业单位，协助40余家企业单位开展校企联动线下活动；具备跨部门沟通、执行与现场协调能力。</p>
         </div>
         <div class="skill-card fade-in">
           <div class="skill-icon">🤖</div>
           <h3>AI 工具应用</h3>
-          <p>熟练使用常见 AI 模型，完成数据分析、程序设计、智能体搭建、海报与短片制作等任务；能高效将 AI 融入工作流程，提升产出质量。</p>
+          <p>熟练使用常见 AI 模型，完成海报与短片制作、数据分析、程序设计、智能体搭建等工作；能高效将 AI 融入工作流程，提升产出质量。</p>
         </div>
         <div class="skill-card fade-in">
           <div class="skill-icon">🏫</div>
@@ -426,7 +449,7 @@
           <span class="project-role">核心成员</span>
         </div>
         <p style="font-size:0.93rem; color:#5A5A5A;">
-          作为核心成员参与"青创北京"2026年"挑战杯"首都大学生创业计划竞赛，项目经学校认可推优至赛事主办方。
+          作为项目核心成员参与2026年首都大学生挑战杯创业竞赛，项目通过校内评审获得推优资格晋级市级赛事，最终获得北京市二等奖。
         </p>
       </div>
     </div>
@@ -443,6 +466,25 @@
         <p class="eval-text">
           本人性格沉稳踏实，做事认真负责，对待工作始终保持严谨细致的态度，能高效完成各项任务。同时兼具良好的团队协作意识与沟通能力，执行力强，乐于主动学习，愿意以务实的态度面对工作中的挑战，稳步推进目标落地。
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 代表作品 -->
+  <section class="section" id="works">
+    <div class="container">
+      <div class="section-title fade-in">
+        <span class="section-number">06</span>
+        <h2>代表作品</h2>
+      </div>
+      <div class="pub-card fade-in">
+        <ul class="pub-list">
+          <li><a href="https://mp.weixin.qq.com/s/Git02hmh-1vL8Vl-c0Epsg" target="_blank" rel="noopener">人文学院2025级新生开学典礼圆满举办<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
+          <li><a href="https://mp.weixin.qq.com/s/zYMsxBUw0pUTpiSLaCp7Vg" target="_blank" rel="noopener">白杨新声：军训正当时（三）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
+          <li><a href="https://mp.weixin.qq.com/s/tYvlQm2D2OAwn9-_teXQzg" target="_blank" rel="noopener">访企拓岗 | 人文学院赴网易（北京）数字产业中心开展访企拓岗活动<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
+          <li><a href="https://mp.weixin.qq.com/s/DuwX-iO1R9390QPxNsXGWg" target="_blank" rel="noopener">好好做个读书人｜人文学院举办经典阅读与分享系列活动<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
+          <li><a href="https://mp.weixin.qq.com/s/gJk3BoI_SMRPZNmnDA8VUA" target="_blank" rel="noopener">节气｜惊蛰<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></li>
+        </ul>
       </div>
     </div>
   </section>
