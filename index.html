@@ -298,6 +298,145 @@
     .container { padding: 0 18px; }
     .hero-name { font-size: 1.8rem; }
   }
+
+  /* ===== Visual Portfolio ===== */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .work-card {
+    background: #FFFFFF;
+    border: 1px solid #EBE5DC;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    position: relative;
+    top: 0;
+  }
+  .work-card:hover {
+    top: -4px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.10);
+    border-color: #D4C8B6;
+  }
+  .work-card-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+    background: #F0ECE3;
+  }
+  .work-card-body {
+    padding: 16px 18px;
+  }
+  .work-card-title {
+    font-size: 0.97rem;
+    font-weight: 600;
+    color: #2C2C2C;
+    margin-bottom: 6px;
+  }
+  .work-card-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: #8B7355;
+    background: #F7F4EF;
+    padding: 2px 10px;
+    border-radius: 14px;
+    letter-spacing: 0.04em;
+  }
+  .work-card-tag.video { color: #7A6A5A; }
+  .work-card-tag.image { color: #9B8B7B; }
+  .work-card-tag.link  { color: #6B8FA3; }
+
+  /* ===== Lightbox ===== */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,0.82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    padding: 24px;
+  }
+  .lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .lightbox-inner {
+    position: relative;
+    max-width: 960px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .lightbox-media {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 16px 56px rgba(0,0,0,0.40);
+  }
+  .lightbox-media iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: block;
+    border: none;
+  }
+  .lightbox-media img {
+    width: 100%;
+    height: auto;
+    max-height: 82vh;
+    object-fit: contain;
+    display: block;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -42px;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.10);
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+    line-height: 1;
+  }
+  .lightbox-close:hover {
+    background: rgba(255,255,255,0.22);
+    border-color: rgba(255,255,255,0.45);
+  }
+  .lightbox-title {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
+    margin-top: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .lightbox { padding: 12px; }
+    .lightbox-close { top: -38px; right: 0; }
+  }
+  @media (max-width: 480px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 </head>
 <body>
@@ -315,8 +454,9 @@
         <li><a href="#education" data-nav>教育背景</a></li>
         <li><a href="#skills" data-nav>能力经历</a></li>
         <li><a href="#projects" data-nav>项目经历</a></li>
+        <li><a href="#portfolio" data-nav>视觉作品</a></li>
         <li><a href="#eval" data-nav>自我评价</a></li>
-        <li><a href="#works" data-nav>代表作品</a></li>
+        <li><a href="#works" data-nav>发表文章</a></li>
       </ul>
     </div>
   </nav>
@@ -455,11 +595,69 @@
     </div>
   </section>
 
+  <!-- 视觉作品 -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="section-title fade-in">
+        <span class="section-number">05</span>
+        <h2>视觉作品</h2>
+      </div>
+      <div class="portfolio-grid">
+
+        <!-- 节气海报（静态） -->
+        <div class="work-card fade-in" data-lightbox="image" data-src="images/节气海报（静态）.jpg" data-title="节气海报（静态）">
+          <img class="work-card-thumb" src="images/节气海报（静态）.jpg" alt="节气海报（静态）" loading="lazy">
+          <div class="work-card-body">
+            <div class="work-card-title">节气海报（静态）</div>
+            <span class="work-card-tag image">静态海报</span>
+          </div>
+        </div>
+
+        <!-- 节气海报（动态） -->
+        <a class="work-card fade-in" href="https://mp.weixin.qq.com/s/gJk3BoI_SMRPZNmnDA8VUA" target="_blank" rel="noopener" data-title="节气海报（动态）" style="display:block; text-decoration:none;">
+          <div style="width:100%;aspect-ratio:16/10;background:linear-gradient(135deg,#E8DFD3 0%,#D5C9B5 30%,#C4B8A2 60%,#B8A990 100%);display:flex;align-items:center;justify-content:center;font-size:2.8rem;color:rgba(255,255,255,0.6);">⚡</div>
+          <div class="work-card-body">
+            <div class="work-card-title">节气海报（动态）</div>
+            <span class="work-card-tag video">动态视频 · 微信推文</span>
+          </div>
+        </a>
+
+        <!-- 春日宴 -->
+        <div class="work-card fade-in" data-lightbox="video" data-bvid="BV1Dn7q6NEYE" data-title="春日宴">
+          <img class="work-card-thumb" id="cover-BV1Dn7q6NEYE" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='200' fill='%23E8DFD3'%3E%3Crect width='320' height='200'/%3E%3Ctext x='160' y='105' text-anchor='middle' fill='%23B8A99A' font-size='14'%3E加载中%3C/text%3E%3C/svg%3E" alt="春日宴" loading="lazy">
+          <div class="work-card-body">
+            <div class="work-card-title">春日宴</div>
+            <span class="work-card-tag video">动态影像</span>
+          </div>
+        </div>
+
+        <!-- 十六字令三首 -->
+        <div class="work-card fade-in" data-lightbox="video" data-bvid="BV13n7q6KE72" data-title="十六字令三首">
+          <img class="work-card-thumb" id="cover-BV13n7q6KE72" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='200' fill='%23E8DFD3'%3E%3Crect width='320' height='200'/%3E%3Ctext x='160' y='105' text-anchor='middle' fill='%23B8A99A' font-size='14'%3E加载中%3C/text%3E%3C/svg%3E" alt="十六字令三首" loading="lazy">
+          <div class="work-card-body">
+            <div class="work-card-title">十六字令三首</div>
+            <span class="work-card-tag video">动态影像</span>
+          </div>
+        </div>
+
+        <!-- 天一方 -->
+        <div class="work-card fade-in" data-lightbox="video" data-bvid="BV1Qn7q6NEGW" data-title="天一方">
+          <img class="work-card-thumb" id="cover-BV1Qn7q6NEGW" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='200' fill='%23E8DFD3'%3E%3Crect width='320' height='200'/%3E%3Ctext x='160' y='105' text-anchor='middle' fill='%23B8A99A' font-size='14'%3E加载中%3C/text%3E%3C/svg%3E" alt="天一方" loading="lazy">
+          <div class="work-card-body">
+            <div class="work-card-title">天一方</div>
+            <span class="work-card-tag video">动态影像</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- 自我评价 -->
   <section class="section" id="eval">
     <div class="container">
       <div class="section-title fade-in">
-        <span class="section-number">05</span>
+        <span class="section-number">06</span>
         <h2>自我评价</h2>
       </div>
       <div class="eval-card fade-in">
@@ -474,8 +672,8 @@
   <section class="section" id="works">
     <div class="container">
       <div class="section-title fade-in">
-        <span class="section-number">06</span>
-        <h2>代表作品</h2>
+        <span class="section-number">07</span>
+        <h2>发表文章</h2>
       </div>
       <div class="pub-card fade-in">
         <ul class="pub-list">
@@ -558,7 +756,83 @@
           el.classList.add('visible');
         }
       });
+
+      // Init lightbox + fetch B站 covers
+      initLightbox();
+      fetchBilibiliCovers();
     });
+
+    // ===== Lightbox =====
+    function initLightbox() {
+      const lb = document.getElementById('lightbox');
+      const lbMedia = document.getElementById('lightboxMedia');
+      const lbTitle = document.getElementById('lightboxTitle');
+      const lbClose = document.getElementById('lightboxClose');
+
+      function open(html, title) {
+        lbMedia.innerHTML = html;
+        lbTitle.textContent = title || '';
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+        setTimeout(() => { lbMedia.innerHTML = ''; }, 300);
+      }
+
+      lbClose.addEventListener('click', close);
+      lb.addEventListener('click', (e) => {
+        if (e.target === lb) close();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lb.classList.contains('open')) close();
+      });
+
+      // Attach click handlers to work cards
+      document.querySelectorAll('[data-lightbox]').forEach(card => {
+        card.addEventListener('click', function() {
+          const type = this.dataset.lightbox;
+          const title = this.dataset.title;
+          if (type === 'image') {
+            const src = this.dataset.src;
+            open(`<img src="${src}" alt="${title}">`, title);
+          } else if (type === 'video') {
+            const bvid = this.dataset.bvid;
+            open(`<iframe src="//player.bilibili.com/player.html?bvid=${bvid}&autoplay=1&danmaku=0" scrolling="no" border="0" frameborder="no" allowfullscreen="true"></iframe>`, title);
+          }
+        });
+      });
+    }
+
+    // ===== Fetch B站 video covers =====
+    async function fetchBilibiliCovers() {
+      const cards = document.querySelectorAll('[data-bvid]');
+      for (const card of cards) {
+        const bvid = card.dataset.bvid;
+        const img = document.getElementById('cover-' + bvid);
+        if (!img) continue;
+        try {
+          const resp = await fetch(`https://api.bilibili.com/x/web-interface/view?bvid=${bvid}`);
+          const data = await resp.json();
+          if (data.code === 0 && data.data.pic) {
+            img.src = data.data.pic;
+          }
+        } catch (e) {
+          // keep placeholder on error
+        }
+      }
+    }
   </script>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="关闭">✕</button>
+      <div class="lightbox-media" id="lightboxMedia"></div>
+      <p class="lightbox-title" id="lightboxTitle"></p>
+    </div>
+  </div>
+
 </body>
 </html>
